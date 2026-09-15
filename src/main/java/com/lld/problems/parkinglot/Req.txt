@@ -1,0 +1,15 @@
+Parking Lot — Requirements
+Multiple floors, each floor has spots of type: Motorcycle, Compact, Large
+Smaller vehicles can use bigger spots (motorcycle can use a Large spot), not vice versa
+Entry → system finds and assigns an available spot
+Exit → spot freed, parking fee calculated based on duration
+Track how many spots of each type are free
+
+Entity:
+Vehicle: vehicle id, type
+parkingSpot: spot id, type, isOccupied
+Floor: floor id, list of parking spots
+parking ticket:  vehicle id, spot id, entry time, exit time
+
+One Fee strategy interface
+weekly fee strategy, weekend fee stategy, Vehicle type fee strategy

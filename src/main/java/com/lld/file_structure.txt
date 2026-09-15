@@ -1,0 +1,34 @@
+LLD/
+├── pom.xml (or build.gradle — single project, multiple packages)
+└── src/main/java/lld/
+    ├── solid/
+    │   ├── srp/
+    │   │   ├── bad/
+    │   │   │   └── Invoice.java
+    │   │   └── good/
+    │   │       ├── Invoice.java
+    │   │       ├── InvoicePrinter.java
+    │   │       └── InvoiceRepository.java
+    │   ├── ocp/
+    │   ├── lsp/
+    │   ├── isp/
+    │   └── dip/
+    ├── patterns/
+    │   ├── creational/
+    │   │   ├── factory/
+    │   │   ├── builder/
+    │   │   └── singleton/
+    │   ├── structural/
+    │   │   ├── adapter/
+    │   │   ├── decorator/
+    │   │   └── facade/
+    │   └── behavioral/
+    │       ├── strategy/
+    │       ├── observer/
+    │       ├── state/
+    │       └── command/
+    └── problems/
+        ├── parkinglot/
+        ├── splitwise/
+        ├── elevator/
+        └── ...
