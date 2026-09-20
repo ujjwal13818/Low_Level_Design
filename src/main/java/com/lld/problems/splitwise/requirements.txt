@@ -1,0 +1,53 @@
+Splitwise — Finalized Requirements
+
+Users can form a group, add/remove members.
+Log an expense: total amount, who paid, and the list of participants the expense should be split among.
+Split type: exact amounts per participant (e.g., total ₹300, split as ₹100/₹150/₹50 — explicitly specified, not auto-divided).
+Edit or remove an expense — and this should correctly adjust the balances that were already affected by it.
+Settlement: one user pays another to reduce/zero-out what they owe them — system records this and updates balances.
+Track net balance between users (who owes whom, how much).
+Group deletion.
+Notifications — out of scope for now.
+
+User
+  - userId
+  - name
+
+Group
+  - groupId
+  - name
+  - List<User> members
+  - User admin
+  - List<Expense> expenses
+
+Expense
+  - expenseId
+  - description
+  - double totalAmount
+  - User paidBy
+  - List<User> participants
+  - SplitStrategy splitStrategy       (which strategy was used — Equal / Exact / Percentage)
+  - Map<User, Double> splitDetails    (final computed per-user amounts, calculated once at creation)
+  - Group group
+  - LocalDate date
+
+BalanceSheet
+  - Map<User, Map<User, Double>> balances
+  - addExpense(Expense)
+  - removeExpense(Expense)
+  - getBalance(User a, User b)
+
+SplitStrategy (interface)
+  - Map<User, Double> calculateSplit(double totalAmount, List<User> participants, Map<User, Double> inputValues)
+
+  Implementations:
+  - EqualSplitStrategy
+  - ExactSplitStrategy
+  - PercentageSplitStrategy
+
+
+ExpenseManager
+    - balanceSheet
+    - add Expense
+    - remove expense
+
